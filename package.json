@@ -1,7 +1,7 @@
 {
   "name": "store5",
   "version": "1.0.0",
-  "description": "在浏览器存取数据的简单方案",
+  "description": "浏览器端存取数据的简单方案",
   "main": "index.js",
   "repository": {
     "url": "https://github.com/chenhaihong/store5",
@@ -9,5 +9,11 @@
   },
   "author": "haihong <1194445212@qq.com>",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "webpack": "^1.13.3"
+  },
+  "dependencies": {}
 }

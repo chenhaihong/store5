@@ -1,7 +1,6 @@
 export {
-	setItem,
-	getItem,
-	removeItem,
+	set,
+	get,
+	remove,
 	clear,
-	default as a
 } from './src/store5.js';

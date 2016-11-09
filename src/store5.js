@@ -1,4 +1,4 @@
-export function setItem(name, value) {
+export function set(name, value) {
     value = encodeURIComponent(value);
     if(window.localStorage) { // use localStorage
         localStorage.setItem(name, value);
@@ -10,7 +10,7 @@ export function setItem(name, value) {
         document.cookie = c_name + "=" + value + ";expires=" + exdate.toUTCString();
     }
 }
-export function getItem(name) {
+export function get(name) {
     var item = null;
     if(window.localStorage) { // use localStorage
         item = localStorage.getItem(name);
@@ -30,7 +30,7 @@ export function getItem(name) {
     }
     return item ? decodeURIComponent(item) : item;
 }
-export function removeItem(name) {
+export function remove(name) {
     if(window.localStorage) { // use localStorage
         localStorage.removeItem(name);
     } else { // use cookies
@@ -48,9 +48,3 @@ export function clear() {
         }
     }
 }
-export default {
-    setItem: setItem,
-    getItem: getItem,
-    removeItem: removeItem,
-    clear: clear,
-};
