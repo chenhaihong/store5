@@ -1,0 +1,13 @@
+{
+  "name": "store5",
+  "version": "1.0.0",
+  "description": "在浏览器存取数据的简单方案",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/chenhaihong/store5",
+    "type": "git"
+  },
+  "author": "haihong <1194445212@qq.com>",
+  "license": "MIT",
+  "devDependencies": {}
+}
