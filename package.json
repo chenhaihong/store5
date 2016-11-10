@@ -7,7 +7,7 @@
     "url": "https://github.com/chenhaihong/store5",
     "type": "git"
   },
-  "author": "haihong <1194445212@qq.com>",
+  "author": "Terry Chan <1194445212@qq.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.18.2",
