@@ -4,7 +4,8 @@
 
 ##一、引入##
 
-**方式一：通过link标签引入**
+###方式一：通过link标签引入**###
+
 ```html
 <script src="dist/store5.min.js"></script>
 <script>
@@ -14,7 +15,8 @@
 </script>
 ```
 
-**方式二：通过 require 引入**
+###方式二：通过 require 引入###
+
 ```javascript
 var store5 = require('store5');
 
@@ -23,7 +25,7 @@ store5.set('book', ['HarryPotter', 'magic', 'J. K. Rowling']);
 store5.get('book')[0]; //=> 'HarryPotter'
 ```
 
-**方式三：通过 import 引入**
+###方式三：通过 import 引入###
 
 执行 `npm install store5 --save` 或 `yarn add store5` 安装，即可使用。
 
@@ -41,7 +43,7 @@ store5.get('book').author; //=> 'J. K. Rowling'
 
 ##二、使用##
 
-######（1）set 方法#####
+###（1）set 方法###
 
 1. **set**( key, value, expire, type ) 存储数据
 1. **setLocalStorage**( key, value, expire ) 存贮数据到localStorage
@@ -56,7 +58,7 @@ store5.get('book').author; //=> 'J. K. Rowling'
 	* `1` => 使用 `sessionStorage` 存取数据
 	* `2` => 使用 `cookie` 存取数据
 
-######（2）get 方法######
+###（2）get 方法###
 
 1. **get**(key, type) 获取数据
 1. **getLocalStorage**(key) 获取存储在localStorage的数据
@@ -66,7 +68,7 @@ store5.get('book').author; //=> 'J. K. Rowling'
 * `key`：key值。
 * `type`：存储的位置，取值为`0`，`1`或`2`。**默认值为`0`。**
 
-######（3）remove 方法######
+###（3）remove 方法###
 
 1. **remove**( key, type )  移除指定key、指定类型的数据
 1. **removeLocalStorage**( key ) 移除localStorage中指定key的数据
@@ -76,7 +78,7 @@ store5.get('book').author; //=> 'J. K. Rowling'
 * `key`：key值。
 * `type`：存储的位置，取值为`0`，`1`或`2`。**默认值为`0`。**
 
-######（4）clear 方法######
+###（4）clear 方法###
 
 1. **clear**( type ) 清空指定类型的数据
 1. **clearLocalStorage**() 清空存储在localStorage的数据
