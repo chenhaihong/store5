@@ -1,8 +1,8 @@
-##store5##
+#store5#
 
 浏览器端存取数据的简单方案。
 
-###一、引入###
+##一、引入##
 
 **方式一：通过link标签引入**
 ```html
@@ -31,12 +31,12 @@ var store5 = require('store5');
 
 ```
 
-###二、使用###
+##二、使用##
 
-####set(key, value, expire, type)####
+######set(key, value, expire, type)#####
 
-####get(key, type)####
+#####get(key, type)#####
 
-####remove(key, type)####
+#####remove(key, type)#####
 
-####clear(type)####
+#####clear(type)#####
