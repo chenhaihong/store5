@@ -1,12 +1,25 @@
-export function set(name, value) {
-    value = encodeURIComponent(value);
-    if(window.localStorage) { // use localStorage
-        localStorage.setItem(name, value);
-    } else { // use cookies
-        var c_name = name;
-        var exdate = new Date();
-        var days = 10;
-        exdate.setDate(exdate.getDate() + days);
-        document.cookie = c_name + "=" + value + ";expires=" + exdate.toUTCString();
-    }
+export function remove(key, type = 0) {
+	switch(type) {
+		case 0:
+			removeFromLocalStorage(key);
+			break;
+		case 1:
+			removeFromSessionStorage(key);
+			break;
+		case 2:
+			removeFromCookie(key);
+			break;
+	};
+}
+
+function removeFromLocalStorage(key) {
+	localStorage.removeItem(key);
+}
+
+function removeFromSessionStorage(key) {
+	sessionStorage.removeItem(key);
+}
+
+function removeFromCookie(key) {
+	document.cookie = key + "=''; expires=" + new Date(0).toUTCString();
 }
