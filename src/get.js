@@ -4,55 +4,58 @@ export function get(key, type = 0) {
 	var value;
 	switch(type) {
 		case 0:
-			value = getFromLocalStorage(key);
+			value = getLocalStorage(key);
 			break;
 		case 1:
-			value = getFromSessionStorage(key);
+			value = getSessionStorage(key);
 			break;
 		case 2:
-			value = getFromCookie(key);
+			value = getCookie(key);
 			break;
 	};
 	return value;
 }
 
-function decode(sec) {
-	var pack = JSON5.parse(sec);
-	return pack;
-}
-
-function getFromLocalStorage(key) {
+export function getLocalStorage(key) {
 	var sec = localStorage.getItem(key);
-	var pack = decode(sec);
 	var value;
-	
-	if(pack.expire > new Date().getTime()) {
-		value = pack.value;
+	if(sec) {
+		var pack = decode(sec);
+
+		if(pack.expire > new Date().getTime() || pack.expire == 0) {
+			value = pack.value;
+		} else {
+			value = null;
+			localStorage.removeItem(key);
+		}
 	} else {
-		value = '';
-		localStorage.removeItem(key);
+		value = sec;
 	}
-	
+
 	return value;
 }
 
-function getFromSessionStorage(key) {
-	var sec = sessionStorage.getItem(key)
-	var pack = decode(sec);
+export function getSessionStorage(key) {
+	var sec = sessionStorage.getItem(key);
 	var value;
-	
-	if(pack.expire > new Date().getTime()) {
-		value = pack.value;
+	if(sec) {
+		var pack = decode(sec);
+
+		if(pack.expire > new Date().getTime() || pack.expire == 0) {
+			value = pack.value;
+		} else {
+			value = null;
+			sessionStorage.removeItem(key);
+		}
 	} else {
-		value = '';
-		sessionStorage.removeItem(key);
+		value = sec;
 	}
-	
+
 	return value;
 }
 
-function getFromCookie(key) {
-	var item = '';
+export function getCookie(key) {
+	var sec = null;
 
 	if(document.cookie.length > 0) {
 		var start = document.cookie.indexOf(key + "=");
@@ -60,11 +63,24 @@ function getFromCookie(key) {
 
 		if(start != -1) {
 			start = start + key.length + 1;
+			//因为是根据距离“%key%=”最近的第一个“;”来切割，
+			//所以建议在存储前先将value进行base64编码。
 			end = document.cookie.indexOf(";", start);
 			if(end == -1) end = document.cookie.length;
-			item = document.cookie.substring(start, end);
+			sec = document.cookie.substring(start, end);
 		}
 	}
 
-	return item ? JSON5.stringify(item) : item;
+	return sec ? sDecode(sec) : sec;
+}
+
+function decode(sec) {
+	var pack = JSON5.parse(sec);
+	return pack;
+}
+
+function sDecode(sec) {
+	var pack = JSON5.parse(sec);
+	var value = pack.value;
+	return value;
 }

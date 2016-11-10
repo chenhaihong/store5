@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const _ZIP = 0;
+const _ZIP = 1;
 
 module.exports = {
 	// devtool: 'eval',

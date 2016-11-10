@@ -1,25 +1,25 @@
 export function remove(key, type = 0) {
 	switch(type) {
 		case 0:
-			removeFromLocalStorage(key);
+			removeLocalStorage(key);
 			break;
 		case 1:
-			removeFromSessionStorage(key);
+			removeSessionStorage(key);
 			break;
 		case 2:
-			removeFromCookie(key);
+			removeCookie(key);
 			break;
 	};
 }
 
-function removeFromLocalStorage(key) {
+export function removeLocalStorage(key) {
 	localStorage.removeItem(key);
 }
 
-function removeFromSessionStorage(key) {
+export function removeSessionStorage(key) {
 	sessionStorage.removeItem(key);
 }
 
-function removeFromCookie(key) {
+export function removeCookie(key) {
 	document.cookie = key + "=''; expires=" + new Date(0).toUTCString();
 }

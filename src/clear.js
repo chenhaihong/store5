@@ -12,15 +12,15 @@ export function clear(type = 0) {
 	};
 }
 
-function clearLocalStorage() {
+export function clearLocalStorage() {
 	localStorage.clear();
 }
 
-function clearSessionStorage() {
+export function clearSessionStorage() {
 	sessionStorage.clear();
 }
 
-function clearCookie() {
+export function clearCookie() {
 	var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
 	if(keys) {
 		for(var i = keys.length; i--;)

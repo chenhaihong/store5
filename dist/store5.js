@@ -71,43 +71,115 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 
 	var _set = __webpack_require__(2);
 
 	Object.defineProperty(exports, 'set', {
-	  enumerable: true,
-	  get: function get() {
-	    return _set.set;
-	  }
+		enumerable: true,
+		get: function get() {
+			return _set.set;
+		}
+	});
+	Object.defineProperty(exports, 'setLocalStorage', {
+		enumerable: true,
+		get: function get() {
+			return _set.setLocalStorage;
+		}
+	});
+	Object.defineProperty(exports, 'setSessionStorage', {
+		enumerable: true,
+		get: function get() {
+			return _set.setSessionStorage;
+		}
+	});
+	Object.defineProperty(exports, 'setCookie', {
+		enumerable: true,
+		get: function get() {
+			return _set.setCookie;
+		}
 	});
 
 	var _get = __webpack_require__(4);
 
 	Object.defineProperty(exports, 'get', {
-	  enumerable: true,
-	  get: function get() {
-	    return _get.get;
-	  }
+		enumerable: true,
+		get: function get() {
+			return _get.get;
+		}
+	});
+	Object.defineProperty(exports, 'getLocalStorage', {
+		enumerable: true,
+		get: function get() {
+			return _get.getLocalStorage;
+		}
+	});
+	Object.defineProperty(exports, 'getSessionStorage', {
+		enumerable: true,
+		get: function get() {
+			return _get.getSessionStorage;
+		}
+	});
+	Object.defineProperty(exports, 'getCookie', {
+		enumerable: true,
+		get: function get() {
+			return _get.getCookie;
+		}
 	});
 
 	var _remove = __webpack_require__(5);
 
 	Object.defineProperty(exports, 'remove', {
-	  enumerable: true,
-	  get: function get() {
-	    return _remove.remove;
-	  }
+		enumerable: true,
+		get: function get() {
+			return _remove.remove;
+		}
+	});
+	Object.defineProperty(exports, 'removeLocalStorage', {
+		enumerable: true,
+		get: function get() {
+			return _remove.removeLocalStorage;
+		}
+	});
+	Object.defineProperty(exports, 'removeSessionStorage', {
+		enumerable: true,
+		get: function get() {
+			return _remove.removeSessionStorage;
+		}
+	});
+	Object.defineProperty(exports, 'removeCookie', {
+		enumerable: true,
+		get: function get() {
+			return _remove.removeCookie;
+		}
 	});
 
 	var _clear = __webpack_require__(6);
 
 	Object.defineProperty(exports, 'clear', {
-	  enumerable: true,
-	  get: function get() {
-	    return _clear.clear;
-	  }
+		enumerable: true,
+		get: function get() {
+			return _clear.clear;
+		}
+	});
+	Object.defineProperty(exports, 'clearLocalStorage', {
+		enumerable: true,
+		get: function get() {
+			return _clear.clearLocalStorage;
+		}
+	});
+	Object.defineProperty(exports, 'clearSessionStorage', {
+		enumerable: true,
+		get: function get() {
+			return _clear.clearSessionStorage;
+		}
+	});
+	Object.defineProperty(exports, 'clearCookie', {
+		enumerable: true,
+		get: function get() {
+			return _clear.clearCookie;
+		}
 	});
 
 /***/ },
@@ -120,6 +192,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		value: true
 	});
 	exports.set = set;
+	exports.setLocalStorage = setLocalStorage;
+	exports.setSessionStorage = setSessionStorage;
+	exports.setCookie = setCookie;
 
 	var _json = __webpack_require__(3);
 
@@ -133,15 +208,44 @@ return /******/ (function(modules) { // webpackBootstrap
 
 		switch (type) {
 			case 0:
-				saveInLocalStorage(key, value, expire);
+				setLocalStorage(key, value, expire);
 				break;
 			case 1:
-				saveInSessionStorage(key, value, expire);
+				setSessionStorage(key, value, expire);
 				break;
 			case 2:
-				saveInCookie(key, value, expire);
+				setCookie(key, value, expire);
 				break;
 		};
+	}
+
+	function setLocalStorage(key, value) {
+		var expire = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
+		var sec = encode(value, expire);
+		localStorage.setItem(key, sec);
+	}
+
+	function setSessionStorage(key, value) {
+		var expire = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
+		var sec = encode(value, expire);
+		sessionStorage.setItem(key, sec);
+	}
+
+	function setCookie(key, value) {
+		var expire = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
+		var d;
+		if (expire == 0) {
+			d = new Date().getTime() + 31536000000000; //1000年过期时间（1000年 * 365天 * 24小时 * 3600秒 * 1000毫秒 = 31536000000000） 
+			d = new Date(d);
+		} else {
+			d = new Date(expire);
+		}
+
+		var sec = sEncode(value);
+		document.cookie = key + "=" + sec + ";expires=" + d.toUTCString();
 	}
 
 	function encode(value, expire) {
@@ -153,20 +257,12 @@ return /******/ (function(modules) { // webpackBootstrap
 		return sec;
 	}
 
-	function saveInLocalStorage(key, value, expire) {
-		var sec = encode(value, expire);
-		localStorage.setItem(key, sec);
-	}
-
-	function saveInSessionStorage(key, value, expire) {
-		var sec = encode(value, expire);
-		sessionStorage.setItem(key, value);
-	}
-
-	function saveInCookie(key, value, expire) {
-		var d = new Date(expire);
-		var sec = _json2.default.stringify(value);
-		document.cookie = key + "=" + value + ";expires=" + d.toUTCString();
+	function sEncode(value) {
+		var pack = {
+			"value": value
+		};
+		var sec = _json2.default.stringify(pack);
+		return sec;
 	}
 
 /***/ },
@@ -946,12 +1042,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 	exports.get = get;
+	exports.getLocalStorage = getLocalStorage;
+	exports.getSessionStorage = getSessionStorage;
+	exports.getCookie = getCookie;
 
 	var _json = __webpack_require__(3);
 
@@ -965,55 +1064,58 @@ return /******/ (function(modules) { // webpackBootstrap
 		var value;
 		switch (type) {
 			case 0:
-				value = getFromLocalStorage(key);
+				value = getLocalStorage(key);
 				break;
 			case 1:
-				value = getFromSessionStorage(key);
+				value = getSessionStorage(key);
 				break;
 			case 2:
-				value = getFromCookie(key);
+				value = getCookie(key);
 				break;
 		};
 		return value;
 	}
 
-	function decode(sec) {
-		var pack = _json2.default.parse(sec);
-		return pack;
-	}
-
-	function getFromLocalStorage(key) {
+	function getLocalStorage(key) {
 		var sec = localStorage.getItem(key);
-		var pack = decode(sec);
 		var value;
+		if (sec) {
+			var pack = decode(sec);
 
-		if (pack.expire > new Date().getTime()) {
-			value = pack.value;
+			if (pack.expire > new Date().getTime() || pack.expire == 0) {
+				value = pack.value;
+			} else {
+				value = null;
+				localStorage.removeItem(key);
+			}
 		} else {
-			value = '';
-			localStorage.removeItem(key);
+			value = sec;
 		}
 
 		return value;
 	}
 
-	function getFromSessionStorage(key) {
+	function getSessionStorage(key) {
 		var sec = sessionStorage.getItem(key);
-		var pack = decode(sec);
 		var value;
+		if (sec) {
+			var pack = decode(sec);
 
-		if (pack.expire > new Date().getTime()) {
-			value = pack.value;
+			if (pack.expire > new Date().getTime() || pack.expire == 0) {
+				value = pack.value;
+			} else {
+				value = null;
+				sessionStorage.removeItem(key);
+			}
 		} else {
-			value = '';
-			sessionStorage.removeItem(key);
+			value = sec;
 		}
 
 		return value;
 	}
 
-	function getFromCookie(key) {
-		var item = '';
+	function getCookie(key) {
+		var sec = null;
 
 		if (document.cookie.length > 0) {
 			var start = document.cookie.indexOf(key + "=");
@@ -1021,13 +1123,26 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			if (start != -1) {
 				start = start + key.length + 1;
+				//因为是根据距离“%key%=”最近的第一个“;”来切割，
+				//所以建议在存储前先将value进行base64编码。
 				end = document.cookie.indexOf(";", start);
 				if (end == -1) end = document.cookie.length;
-				item = document.cookie.substring(start, end);
+				sec = document.cookie.substring(start, end);
 			}
 		}
 
-		return item ? _json2.default.stringify(item) : item;
+		return sec ? sDecode(sec) : sec;
+	}
+
+	function decode(sec) {
+		var pack = _json2.default.parse(sec);
+		return pack;
+	}
+
+	function sDecode(sec) {
+		var pack = _json2.default.parse(sec);
+		var value = pack.value;
+		return value;
 	}
 
 /***/ },
@@ -1040,31 +1155,34 @@ return /******/ (function(modules) { // webpackBootstrap
 		value: true
 	});
 	exports.remove = remove;
+	exports.removeLocalStorage = removeLocalStorage;
+	exports.removeSessionStorage = removeSessionStorage;
+	exports.removeCookie = removeCookie;
 	function remove(key) {
 		var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
 		switch (type) {
 			case 0:
-				removeFromLocalStorage(key);
+				removeLocalStorage(key);
 				break;
 			case 1:
-				removeFromSessionStorage(key);
+				removeSessionStorage(key);
 				break;
 			case 2:
-				removeFromCookie(key);
+				removeCookie(key);
 				break;
 		};
 	}
 
-	function removeFromLocalStorage(key) {
+	function removeLocalStorage(key) {
 		localStorage.removeItem(key);
 	}
 
-	function removeFromSessionStorage(key) {
+	function removeSessionStorage(key) {
 		sessionStorage.removeItem(key);
 	}
 
-	function removeFromCookie(key) {
+	function removeCookie(key) {
 		document.cookie = key + "=''; expires=" + new Date(0).toUTCString();
 	}
 
@@ -1078,6 +1196,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		value: true
 	});
 	exports.clear = clear;
+	exports.clearLocalStorage = clearLocalStorage;
+	exports.clearSessionStorage = clearSessionStorage;
+	exports.clearCookie = clearCookie;
 	function clear() {
 		var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
