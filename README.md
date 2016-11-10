@@ -4,7 +4,7 @@
 
 ##一、引入##
 
-###方式一：通过link标签引入**###
+###方式1：通过link标签引入**###
 
 ```html
 <script src="dist/store5.min.js"></script>
@@ -15,7 +15,7 @@
 </script>
 ```
 
-###方式二：通过 require 引入###
+###方式2：通过 require 引入###
 
 ```javascript
 var store5 = require('store5');
@@ -25,7 +25,7 @@ store5.set('book', ['HarryPotter', 'magic', 'J. K. Rowling']);
 store5.get('book')[0]; //=> 'HarryPotter'
 ```
 
-###方式三：通过 import 引入###
+###方式3：通过 import 引入###
 
 执行 `npm install store5 --save` 或 `yarn add store5` 安装，即可使用。
 
