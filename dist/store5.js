@@ -56,13 +56,34 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+				value: true
+	});
+	exports.store5 = undefined;
+
 	var _index = __webpack_require__(1);
 
-	var store5 = _interopRequireWildcard(_index);
+	var store5 = exports.store5 = {
+				set: _index.set,
+				setLocalStorage: _index.setLocalStorage,
+				setSessionStorage: _index.setSessionStorage,
+				setCookie: _index.setCookie,
 
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+				get: _index.get,
+				getLocalStorage: _index.getLocalStorage,
+				getSessionStorage: _index.getSessionStorage,
+				getCookie: _index.getCookie,
 
-	module.exports.store5 = store5;
+				remove: _index.remove,
+				removeLocalStorage: _index.removeLocalStorage,
+				removeSessionStorage: _index.removeSessionStorage,
+				removeCookie: _index.removeCookie,
+
+				clear: _index.clear,
+				clearLocalStorage: _index.clearLocalStorage,
+				clearSessionStorage: _index.clearSessionStorage,
+				clearCookie: _index.clearCookie
+	};
 
 /***/ },
 /* 1 */
