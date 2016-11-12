@@ -1,24 +1,30 @@
 import {
-    set,
+	set,
 	setLocalStorage,
 	setSessionStorage,
-	setCookie,
-    
-    get,
+	setCookie
+} from './src/set.js';
+
+import {
+	get,
 	getLocalStorage,
 	getSessionStorage,
-	getCookie,
-    
-    remove,
+	getCookie
+} from './src/get.js';
+
+import {
+	remove,
 	removeLocalStorage,
 	removeSessionStorage,
-	removeCookie,
-    
-    clear,
+	removeCookie
+} from './src/remove.js';
+
+import {
+	clear,
 	clearLocalStorage,
 	clearSessionStorage,
 	clearCookie
-} from './index';
+} from './src/clear.js';
 
 export const store5 = {
     set,

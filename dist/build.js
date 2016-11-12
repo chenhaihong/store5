@@ -59,37 +59,114 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.store5 = undefined;
 
 	var _set = __webpack_require__(1);
 
+	Object.defineProperty(exports, 'set', {
+		enumerable: true,
+		get: function get() {
+			return _set.set;
+		}
+	});
+	Object.defineProperty(exports, 'setLocalStorage', {
+		enumerable: true,
+		get: function get() {
+			return _set.setLocalStorage;
+		}
+	});
+	Object.defineProperty(exports, 'setSessionStorage', {
+		enumerable: true,
+		get: function get() {
+			return _set.setSessionStorage;
+		}
+	});
+	Object.defineProperty(exports, 'setCookie', {
+		enumerable: true,
+		get: function get() {
+			return _set.setCookie;
+		}
+	});
+
 	var _get = __webpack_require__(3);
+
+	Object.defineProperty(exports, 'get', {
+		enumerable: true,
+		get: function get() {
+			return _get.get;
+		}
+	});
+	Object.defineProperty(exports, 'getLocalStorage', {
+		enumerable: true,
+		get: function get() {
+			return _get.getLocalStorage;
+		}
+	});
+	Object.defineProperty(exports, 'getSessionStorage', {
+		enumerable: true,
+		get: function get() {
+			return _get.getSessionStorage;
+		}
+	});
+	Object.defineProperty(exports, 'getCookie', {
+		enumerable: true,
+		get: function get() {
+			return _get.getCookie;
+		}
+	});
 
 	var _remove = __webpack_require__(4);
 
+	Object.defineProperty(exports, 'remove', {
+		enumerable: true,
+		get: function get() {
+			return _remove.remove;
+		}
+	});
+	Object.defineProperty(exports, 'removeLocalStorage', {
+		enumerable: true,
+		get: function get() {
+			return _remove.removeLocalStorage;
+		}
+	});
+	Object.defineProperty(exports, 'removeSessionStorage', {
+		enumerable: true,
+		get: function get() {
+			return _remove.removeSessionStorage;
+		}
+	});
+	Object.defineProperty(exports, 'removeCookie', {
+		enumerable: true,
+		get: function get() {
+			return _remove.removeCookie;
+		}
+	});
+
 	var _clear = __webpack_require__(5);
 
-	var store5 = exports.store5 = {
-		set: _set.set,
-		setLocalStorage: _set.setLocalStorage,
-		setSessionStorage: _set.setSessionStorage,
-		setCookie: _set.setCookie,
-
-		get: _get.get,
-		getLocalStorage: _get.getLocalStorage,
-		getSessionStorage: _get.getSessionStorage,
-		getCookie: _get.getCookie,
-
-		remove: _remove.remove,
-		removeLocalStorage: _remove.removeLocalStorage,
-		removeSessionStorage: _remove.removeSessionStorage,
-		removeCookie: _remove.removeCookie,
-
-		clear: _clear.clear,
-		clearLocalStorage: _clear.clearLocalStorage,
-		clearSessionStorage: _clear.clearSessionStorage,
-		clearCookie: _clear.clearCookie
-	};
+	Object.defineProperty(exports, 'clear', {
+		enumerable: true,
+		get: function get() {
+			return _clear.clear;
+		}
+	});
+	Object.defineProperty(exports, 'clearLocalStorage', {
+		enumerable: true,
+		get: function get() {
+			return _clear.clearLocalStorage;
+		}
+	});
+	Object.defineProperty(exports, 'clearSessionStorage', {
+		enumerable: true,
+		get: function get() {
+			return _clear.clearSessionStorage;
+		}
+	});
+	Object.defineProperty(exports, 'clearCookie', {
+		enumerable: true,
+		get: function get() {
+			return _clear.clearCookie;
+		}
+	});
 
 /***/ },
 /* 1 */

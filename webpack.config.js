@@ -1,9 +1,12 @@
 const webpack = require('webpack');
-const _MIN = 1;
+const _MIN = 0;
 
 module.exports = {
 	// devtool: 'eval',
-    entry: {
+    entry: _MIN ? {
+        'store5': './index.prod.js',
+    } : {
+        'build': './index.js',
 		'store5': './index.prod.js',
 	},
     output: {

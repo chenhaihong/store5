@@ -2,7 +2,7 @@
   "name": "store5",
   "version": "1.0.1",
   "description": "浏览器端存取数据的简单方案",
-  "main": "index.prod.js",
+  "main": "./dist/build.js",
   "repository": {
     "url": "https://github.com/chenhaihong/store5",
     "type": "git"
