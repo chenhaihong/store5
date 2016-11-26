@@ -1,6 +1,6 @@
 {
   "name": "store5",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "浏览器端存取数据的简单方案",
   "main": "./dist/build.js",
   "repository": {
