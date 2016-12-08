@@ -4,7 +4,7 @@
 
 ##一、引入
 
-###方式1：通过 script 标签引入
+###方式1：script 标签
 
 ```html
 <script src="dist/store5.min.js"></script>

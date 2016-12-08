@@ -46,27 +46,26 @@ export {
   clearLocalStorage,
   clearSessionStorage,
   clearCookie
-}
-
-const store5 = {
-  set,
-  setLocalStorage,
-  setSessionStorage,
-  setCookie,
-
-  get,
-  getLocalStorage,
-  getSessionStorage,
-  getCookie,
-
-  remove,
-  removeLocalStorage,
-  removeSessionStorage,
-  removeCookie,
-
-  clear,
-  clearLocalStorage,
-  clearSessionStorage,
-  clearCookie
 };
-export default store5;
+
+export default {
+    set,
+    setLocalStorage,
+    setSessionStorage,
+    setCookie,
+
+    get,
+    getLocalStorage,
+    getSessionStorage,
+    getCookie,
+
+    remove,
+    removeLocalStorage,
+    removeSessionStorage,
+    removeCookie,
+
+    clear,
+    clearLocalStorage,
+    clearSessionStorage,
+    clearCookie
+};

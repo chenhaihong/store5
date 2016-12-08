@@ -5,7 +5,7 @@ An easier way to store data in the browser. LocalStorage, sessionStorage, cookie
 * [中文文档](./README_CN.md)
 
 ## 1. Including store5
-### Script tag
+### (1) Script tag
 ```html
 <script src="dist/store5.min.js"></script>
 <script>
@@ -14,7 +14,7 @@ An easier way to store data in the browser. LocalStorage, sessionStorage, cookie
   store5.get('name'); //=> 'Terry Chan'
 </script>
 ```
-### cmd/amd
+### (2) cmd/amd
 ```javascript
 define(['store5'], function(store5) {
   // set/get array
@@ -23,7 +23,7 @@ define(['store5'], function(store5) {
 });
 ```
 
-### webpack
+### (3) webpack
 
 Run `npm install --save store5` or `yarn add store5` to install store5.
 
