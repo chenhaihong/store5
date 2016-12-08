@@ -1,27 +1,72 @@
-export {
-	set,
-	setLocalStorage,
-	setSessionStorage,
-	setCookie
+import {
+  set,
+  setLocalStorage,
+  setSessionStorage,
+  setCookie
 } from './src/set.js';
 
-export {
-	get,
-	getLocalStorage,
-	getSessionStorage,
-	getCookie
+import {
+  get,
+  getLocalStorage,
+  getSessionStorage,
+  getCookie
 } from './src/get.js';
 
-export {
-	remove,
-	removeLocalStorage,
-	removeSessionStorage,
-	removeCookie
+import {
+  remove,
+  removeLocalStorage,
+  removeSessionStorage,
+  removeCookie
 } from './src/remove.js';
 
-export {
-	clear,
-	clearLocalStorage,
-	clearSessionStorage,
-	clearCookie
+import {
+  clear,
+  clearLocalStorage,
+  clearSessionStorage,
+  clearCookie
 } from './src/clear.js';
+
+export {
+  set,
+  setLocalStorage,
+  setSessionStorage,
+  setCookie,
+
+  get,
+  getLocalStorage,
+  getSessionStorage,
+  getCookie,
+
+  remove,
+  removeLocalStorage,
+  removeSessionStorage,
+  removeCookie,
+
+  clear,
+  clearLocalStorage,
+  clearSessionStorage,
+  clearCookie
+}
+
+const store5 = {
+  set,
+  setLocalStorage,
+  setSessionStorage,
+  setCookie,
+
+  get,
+  getLocalStorage,
+  getSessionStorage,
+  getCookie,
+
+  remove,
+  removeLocalStorage,
+  removeSessionStorage,
+  removeCookie,
+
+  clear,
+  clearLocalStorage,
+  clearSessionStorage,
+  clearCookie
+};
+export default store5;

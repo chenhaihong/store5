@@ -1,14 +1,20 @@
 {
   "name": "store5",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "浏览器端存取数据的简单方案",
-  "main": "./dist/build.js",
+  "main": "./index.js",
   "repository": {
     "url": "https://github.com/chenhaihong/store5",
     "type": "git"
   },
   "author": "Terry Chan <1194445212@qq.com>",
-  "keywords": ["localStorage", "sessionStorage", "cookie", "store", "store5"],
+  "keywords": [
+    "localStorage",
+    "sessionStorage",
+    "cookie",
+    "store",
+    "store5"
+  ],
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.18.2",
@@ -17,6 +23,7 @@
     "webpack": "^1.13.3"
   },
   "dependencies": {
-    "json5": "^0.5.0"
+    "json5": "^0.5.0",
+    "minimist": "^1.2.0"
   }
 }

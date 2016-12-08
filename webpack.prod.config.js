@@ -1,13 +1,22 @@
+/**
+ * @desc webpack --optimize 1 --config webpack.prod.config.js
+ */
 const webpack = require('webpack');
+const minimist = require('minimist');
+const defaultArgvs = {
+  default: {
+    optimize: 0
+  }
+};
+const argvs = minimist(process.argv.slice(2), defaultArgvs);
 
 module.exports = {
-  //devtool: 'source-map',
   entry: {
-    'store5': './index.js',
+    'store5': './index.prod.js',
   },
   output: {
-    path: './build',
-    filename: '[name].js',
+    path: './dist',
+    filename: argvs.optimize ? '[name].min.js' : '[name].js',
     libraryTarget: 'umd',
   },
   module: {
@@ -18,7 +27,7 @@ module.exports = {
       presets: 'es2015'
     }]
   },
-  plugins: [
+  plugins: argvs.optimize ? [
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
@@ -27,5 +36,5 @@ module.exports = {
         comments: false,
       },
     })
-  ]
+  ] : []
 };

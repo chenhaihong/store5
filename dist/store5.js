@@ -57,7 +57,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	exports.store5 = undefined;
 
@@ -70,25 +70,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _clear = __webpack_require__(5);
 
 	var store5 = exports.store5 = {
-		set: _set.set,
-		setLocalStorage: _set.setLocalStorage,
-		setSessionStorage: _set.setSessionStorage,
-		setCookie: _set.setCookie,
+	  set: _set.set,
+	  setLocalStorage: _set.setLocalStorage,
+	  setSessionStorage: _set.setSessionStorage,
+	  setCookie: _set.setCookie,
 
-		get: _get.get,
-		getLocalStorage: _get.getLocalStorage,
-		getSessionStorage: _get.getSessionStorage,
-		getCookie: _get.getCookie,
+	  get: _get.get,
+	  getLocalStorage: _get.getLocalStorage,
+	  getSessionStorage: _get.getSessionStorage,
+	  getCookie: _get.getCookie,
 
-		remove: _remove.remove,
-		removeLocalStorage: _remove.removeLocalStorage,
-		removeSessionStorage: _remove.removeSessionStorage,
-		removeCookie: _remove.removeCookie,
+	  remove: _remove.remove,
+	  removeLocalStorage: _remove.removeLocalStorage,
+	  removeSessionStorage: _remove.removeSessionStorage,
+	  removeCookie: _remove.removeCookie,
 
-		clear: _clear.clear,
-		clearLocalStorage: _clear.clearLocalStorage,
-		clearSessionStorage: _clear.clearSessionStorage,
-		clearCookie: _clear.clearCookie
+	  clear: _clear.clear,
+	  clearLocalStorage: _clear.clearLocalStorage,
+	  clearSessionStorage: _clear.clearSessionStorage,
+	  clearCookie: _clear.clearCookie
 	};
 
 /***/ },
