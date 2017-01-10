@@ -18,7 +18,11 @@ export function setLocalStorage(key, value, expire = 0) {
     let pack = codec.pack(value, expire);
     let sec = codec.encode(pack);
 
-    localStorage.setItem(key, sec);
+    if (codec.supports_html5_storage()){
+        localStorage.setItem(key, sec);
+    }else{
+		setCookie(key, value);
+    }
 }
 
 export function setSessionStorage(key, value, expire = 0) {

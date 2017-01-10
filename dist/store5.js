@@ -57,7 +57,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.store5 = undefined;
 
@@ -70,25 +70,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _clear = __webpack_require__(6);
 
 	var store5 = exports.store5 = {
-	  set: _set.set,
-	  setLocalStorage: _set.setLocalStorage,
-	  setSessionStorage: _set.setSessionStorage,
-	  setCookie: _set.setCookie,
+	    set: _set.set,
+	    setLocalStorage: _set.setLocalStorage,
+	    setSessionStorage: _set.setSessionStorage,
+	    setCookie: _set.setCookie,
 
-	  get: _get.get,
-	  getLocalStorage: _get.getLocalStorage,
-	  getSessionStorage: _get.getSessionStorage,
-	  getCookie: _get.getCookie,
+	    get: _get.get,
+	    getLocalStorage: _get.getLocalStorage,
+	    getSessionStorage: _get.getSessionStorage,
+	    getCookie: _get.getCookie,
 
-	  remove: _remove.remove,
-	  removeLocalStorage: _remove.removeLocalStorage,
-	  removeSessionStorage: _remove.removeSessionStorage,
-	  removeCookie: _remove.removeCookie,
+	    remove: _remove.remove,
+	    removeLocalStorage: _remove.removeLocalStorage,
+	    removeSessionStorage: _remove.removeSessionStorage,
+	    removeCookie: _remove.removeCookie,
 
-	  clear: _clear.clear,
-	  clearLocalStorage: _clear.clearLocalStorage,
-	  clearSessionStorage: _clear.clearSessionStorage,
-	  clearCookie: _clear.clearCookie
+	    clear: _clear.clear,
+	    clearLocalStorage: _clear.clearLocalStorage,
+	    clearSessionStorage: _clear.clearSessionStorage,
+	    clearCookie: _clear.clearCookie
 	};
 
 /***/ },
@@ -134,7 +134,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var pack = _codec2.default.pack(value, expire);
 	    var sec = _codec2.default.encode(pack);
 
-	    localStorage.setItem(key, sec);
+	    if (_codec2.default.supports_html5_storage()) {
+	        localStorage.setItem(key, sec);
+	    } else {
+	        setCookie(key, value);
+	    }
 	}
 
 	function setSessionStorage(key, value) {
@@ -167,7 +171,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -198,6 +202,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    decode: function decode(sec) {
 	        return _json2.default.parse(sec);
+	    },
+	    supports_html5_storage: function supports_html5_storage() {
+	        try {
+	            return 'localStorage' in window && window['localStorage'] !== null;
+	        } catch (e) {
+	            return false;
+	        }
 	    }
 	};
 
@@ -978,7 +989,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -1013,7 +1024,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function getLocalStorage(key) {
-	    var sec = localStorage.getItem(key);
+	    var sec = '';
+	    if (_codec2.default.supports_html5_storage()) {
+	        sec = localStorage.getItem(key);
+	    } else {
+	        sec = getCookie(key);
+	    }
+
 	    var value = void 0;
 	    if (sec) {
 	        var pack = _codec2.default.decode(sec);
@@ -1075,7 +1092,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 5 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -1086,6 +1103,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.removeLocalStorage = removeLocalStorage;
 	exports.removeSessionStorage = removeSessionStorage;
 	exports.removeCookie = removeCookie;
+
+	var _codec = __webpack_require__(2);
+
+	var _codec2 = _interopRequireDefault(_codec);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	function remove(key) {
 	    var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
@@ -1103,7 +1127,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function removeLocalStorage(key) {
-	    localStorage.removeItem(key);
+	    if (_codec2.default.supports_html5_storage()) {
+	        localStorage.removeItem(key);
+	    } else {
+	        removeCookie(key);
+	    }
 	}
 
 	function removeSessionStorage(key) {
@@ -1116,7 +1144,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 6 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -1127,6 +1155,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.clearLocalStorage = clearLocalStorage;
 	exports.clearSessionStorage = clearSessionStorage;
 	exports.clearCookie = clearCookie;
+
+	var _codec = __webpack_require__(2);
+
+	var _codec2 = _interopRequireDefault(_codec);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	function clear() {
 	    var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
@@ -1144,7 +1179,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function clearLocalStorage() {
-	    localStorage.clear();
+	    if (_codec2.default.supports_html5_storage()) {
+	        localStorage.clear();
+	    } else {
+	        clearCookie();
+	    }
 	}
 
 	function clearSessionStorage() {

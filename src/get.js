@@ -17,7 +17,13 @@ export function get(key, type = 0) {
 }
 
 export function getLocalStorage(key) {
-    let sec = localStorage.getItem(key);
+	let sec = '';
+    if (codec.supports_html5_storage()){
+		sec = localStorage.getItem(key);
+    }else{
+        sec = getCookie(key);
+    }
+
     let value;
     if (sec) {
         let pack = codec.decode(sec);
