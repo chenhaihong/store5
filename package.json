@@ -7,6 +7,11 @@
     "url": "https://github.com/chenhaihong/store5",
     "type": "git"
   },
+  "scripts": {
+    "start": "webpack",
+    "dist":"webpack --optimize 0 --config webpack.prod.config.js",
+    "min":"webpack --optimize 1 --config webpack.prod.config.js"
+  },
   "author": "Terry Chan <1194445212@qq.com>",
   "keywords": [
     "localStorage",
