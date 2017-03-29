@@ -1,3 +1,4 @@
+import codec from './codec.js';
 export function remove(key, type = 0) {
     switch (type) {
         case 0:
@@ -13,7 +14,11 @@ export function remove(key, type = 0) {
 }
 
 export function removeLocalStorage(key) {
-    localStorage.removeItem(key);
+    if (codec.supports_html5_storage()){
+        localStorage.removeItem(key);
+    }else{
+		removeCookie(key);
+    }
 }
 
 export function removeSessionStorage(key) {

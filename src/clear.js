@@ -1,3 +1,5 @@
+import codec from './codec.js';
+
 export function clear(type = 0) {
     switch (type) {
         case 0:
@@ -13,7 +15,11 @@ export function clear(type = 0) {
 }
 
 export function clearLocalStorage() {
-    localStorage.clear();
+    if (codec.supports_html5_storage()){
+        localStorage.clear();
+    }else{
+		clearCookie();
+    }
 }
 
 export function clearSessionStorage() {

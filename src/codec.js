@@ -17,5 +17,12 @@ export default {
 
     decode: function (sec) {
         return JSON5.parse(sec);
+    },
+	supports_html5_storage: function() {
+        try {
+            return 'localStorage' in window && window['localStorage'] !== null;
+        } catch (e) {
+            return false;
+        }
     }
 }
