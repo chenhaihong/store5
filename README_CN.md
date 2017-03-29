@@ -10,7 +10,7 @@
 <script src="dist/store5.min.js"></script>
 <script>
   // 存取字符串
-  store5.set('name', 'Terry Chan');
+  store5.set('name', 'Terry Chan', new Date().getTime() + 5000); // 5秒后过期
   store5.get('name'); //=> 'Terry Chan'
 </script>
 ```
@@ -50,7 +50,7 @@ remove('book');
 * **set( key, value, expire, type )** 存储数据
   * **key**：存储的key值。
   * **value**：存储的value值。支持常用的数据类型：数字、字符串、数组、json等。
-  * **expire**：数据过期时间。类型为精确到毫秒的时间戳。当取 `0` 时，表示不过期。**默认值为`0`。**
+  * **expire**：过期时间，超时时间加上当前时间戳。类型为精确到毫秒的时间戳。当取 `0` 时，表示不过期。**默认值为`0`。**
   * **type**：存储数据的位置。取值区间为`0`，`1`或`2`。**默认值为`0`。**
       * `0` => 使用 `localStorage` 存储数据
       * `1` => 使用 `sessionStorage` 存储数据

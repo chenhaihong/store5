@@ -10,7 +10,7 @@ An easier way to store data in the browser. LocalStorage, sessionStorage, cookie
 <script src="dist/store5.min.js"></script>
 <script>
   // set/get string
-  store5.set('name', 'Terry Chan');
+  store5.set('name', 'Terry Chan', new Date().getTime() + 5000); // expired after 5 second
   store5.get('name'); //=> 'Terry Chan'
 </script>
 ```
