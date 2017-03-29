@@ -1,6 +1,6 @@
 {
   "name": "store5",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "An easier way to store data in the browser. LocalStorage, sessionStorage, cookie supported.",
   "main": "./build/store5.js",
   "repository": {
