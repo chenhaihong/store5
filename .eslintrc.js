@@ -8,11 +8,13 @@ module.exports = {
   },
   extends: [],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    document: 'readonly',
+    localStorage: 'readonly',
+    sessionStorage: 'readonly',
   },
   parserOptions: {
     ecmaVersion: 2018,
+    sourceType: 'module',
   },
   rules: {
     // Possible Errors
