@@ -8,23 +8,24 @@ $ npm i
 $ npx lerna bootstrap
 
 # 启动自动构建服务
-$ npx lerna run --scope store5 dev
+$ npm run watch
 # 启动web服务
-$ npx lerna run --scope store5-example dev
+$ npm run server
 # 打开测试页面
-$ npx lerna run --scope store5-example open
+$ npm run open
+```
+
+## 修正代码格式、检查静态语法
+
+```bash
+$ npm run prettier
+$ npm run eslint
 ```
 
 ## 构建
 
 ```bash
-$ npx lerna run build
-```
-
-## 静态语法检查
-
-```bash
-$ npm run eslint
+$ npm run build
 ```
 
 ## 查看更改

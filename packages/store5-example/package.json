@@ -14,5 +14,8 @@
   },
   "dependencies": {
     "store5": "^1.0.7"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.6"
   }
 }

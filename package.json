@@ -1,10 +1,15 @@
 {
   "private": true,
-  "name": "store5",
+  "name": "store5-monorepo",
   "version": "1.0.7",
   "description": "An easier way to store data in the browser. LocalStorage, sessionStorage, cookie supported.",
   "scripts": {
-    "eslint": "eslint --ext .js --fix ./"
+    "watch": "lerna run --scope store5 dev",
+    "server": "lerna run --scope store5-example dev",
+    "open": "lerna run --scope store5-example open",
+    "eslint": "eslint --ext .js --fix ./",
+    "prettier": "prettier --check --write ./**/*.js",
+    "build": "lerna run --scope store5 build"
   },
   "author": {
     "name": "erye",
@@ -21,7 +26,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run eslint && pretty-quick --staged --bail"
+      "pre-commit": "pretty-quick --staged --bail"
     }
   }
 }

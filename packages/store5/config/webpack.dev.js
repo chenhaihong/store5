@@ -1,44 +1,50 @@
 const { resolve } = require('path');
 const webpack = require('webpack'); // eslint-disable-line
 
-module.exports = {
-  entry: {
-    store5: resolve(__dirname, './index.js'),
-  },
-  output: {
-    path: resolve(__dirname, '../dist'),
-    filename: '[name].min.js',
-    libraryName: 'store5',
-    libraryTarget: 'umd',
-  },
-  module: {
-    rules: [
-      {
-        resource: {
-          test: /\.js$/,
-          exclude: /node_modules/,
-        },
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  modules: false,
-                  targets: {
-                    chrome: '58',
-                    ie: '8',
+module.exports = function(
+  env, // eslint-disable-line
+  argv, // eslint-disable-line
+) {
+  return {
+    name: 'store5 dev',
+    target: 'web',
+    mode: 'development', // 设为开发模式，可显著提升构建速度
+    devtool: 'eval-source-map', // 开发模式下使用这个模式，可查看原始源代码，并且重新构建速度较快
+    watch: true,
+    entry: {
+      store5: resolve(__dirname, '../index.js'),
+    },
+    output: {
+      path: resolve(__dirname, '../dist'),
+      filename: '[name].min.js',
+      library: 'store5',
+      libraryTarget: 'umd',
+    },
+    module: {
+      rules: [
+        {
+          resource: {
+            test: /\.js$/,
+            exclude: /node_modules/,
+          },
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    modules: false,
                   },
-                },
+                ],
               ],
-            ],
-            plugins: getAllStagePluginsOfBabel(),
+              // plugins: getAllStagePluginsOfBabel(),
+            },
           },
         },
-      },
-    ],
-  },
+      ],
+    },
+  };
 };
 
 /**
