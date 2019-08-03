@@ -11,8 +11,6 @@ $ npx lerna bootstrap
 $ npm run watch
 # 启动web服务
 $ npm run server
-# 打开测试页面
-$ npm run open
 ```
 
 ## 修正代码格式、检查静态语法

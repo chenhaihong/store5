@@ -8,21 +8,21 @@ module.exports = {
   mode: 'development', // 设为开发模式，可显著提升构建速度
   devtool: 'eval-source-map', // 开发模式下使用这个模式，可查看原始源代码，并且重新构建速度较快
   entry: {
-    app: resolve(__dirname, '../index.js'),
+    app: resolve(__dirname, 'src/index.js'),
   },
   output: {
-    path: resolve(__dirname, 'dist'),
+    path: resolve(__dirname, 'src/dist'),
     filename: '[name].[hash:6].js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, './examples/index.html'),
+      template: resolve(__dirname, 'src/index.html'),
       filename: 'index.html',
     }),
-    new webpack.HotModuleReplacementPlugin(), // 启用hot(Only)后，需要追加此插件，才能生效页面自动刷新
+    new webpack.HotModuleReplacementPlugin(), // 启用hot（Only）后，需要追加此插件，才能生效页面自动刷新
   ],
   devServer: {
-    contentBase: resolve(__dirname, '../dist'),
+    contentBase: resolve(__dirname, 'dist'),
     compress: true,
     port: 8080,
     hot: true,
@@ -35,7 +35,7 @@ module.exports = {
   },
   module: {
     rules: [
-      { resource: { test: /\.html$/ }, use: ['html-loader'] },
+      // { resource: { test: /\.html$/ }, use: ['html-loader'] },
       {
         resource: {
           test: /\.js$/,
@@ -45,14 +45,11 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [['@babel/preset-env', { modules: false }]],
-            plugins: getAllStagePluginsOfBabel(),
+            // plugins: getAllStagePluginsOfBabel(),
           },
         },
       },
     ],
-  },
-  externals: {
-    store5: 'store5',
   },
 };
 

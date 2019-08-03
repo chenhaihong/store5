@@ -4,8 +4,8 @@
   "version": "1.0.7",
   "description": "An easier way to store data in the browser. LocalStorage, sessionStorage, cookie supported.",
   "scripts": {
-    "watch": "lerna run --scope store5 dev",
-    "server": "lerna run --scope store5-example dev",
+    "watch": "cd packages/store5 && npm run dev",
+    "server": "cd packages/store5-example && npm run dev",
     "open": "lerna run --scope store5-example open",
     "eslint": "eslint --ext .js --fix ./",
     "prettier": "prettier --check --write ./**/*.js",
