@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "store5-example",
+  "version": "1.0.7",
+  "description": "store5 example",
+  "author": {
+    "name": "erye",
+    "email": "erye@tiiit.cn",
+    "url": "https://www.tiiit.cn"
+  },
+  "homepage": "https://github.com/chenhaihong/store5#readme",
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.config.js --mode development"
+  },
+  "dependencies": {
+    "store5": "^1.0.7"
+  }
+}
