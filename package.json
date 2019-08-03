@@ -21,7 +21,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged --bail"
+      "pre-commit": "npm run eslint && pretty-quick --staged --bail"
     }
   }
 }
