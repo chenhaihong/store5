@@ -1,6 +1,6 @@
 {
   "name": "store5",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "An easier way to store data in the browser. LocalStorage, sessionStorage, cookie supported.",
   "main": "dist/store5.js",
   "homepage": "https://github.com/chenhaihong/store5/tree/master/packages/store5#readme",
@@ -32,6 +32,5 @@
     "webpack": "^4.39.0",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
-  },
-  "dependencies": {}
+  }
 }

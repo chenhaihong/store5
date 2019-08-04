@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "store5-example",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "store5 example",
   "author": {
     "name": "erye",
@@ -13,7 +13,7 @@
     "dev": "webpack-dev-server --config webpack.config.js --mode development"
   },
   "dependencies": {
-    "store5": "^1.0.7"
+    "store5": "^1.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
