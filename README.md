@@ -35,5 +35,5 @@ $ npx lerna changed
 ## 发布
 
 ```bash
-$ npx lerna publich
+$ npx lerna publish
 ```
