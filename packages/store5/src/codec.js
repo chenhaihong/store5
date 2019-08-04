@@ -1,5 +1,3 @@
-import JSON5 from 'json5';
-
 export default {
   pack: function(value, expire = -1) {
     let pack = {
@@ -12,10 +10,10 @@ export default {
   },
 
   encode: function(pack) {
-    return JSON5.stringify(pack);
+    return JSON.stringify(pack);
   },
 
   decode: function(sec) {
-    return JSON5.parse(sec);
+    return JSON.parse(sec);
   },
 };
